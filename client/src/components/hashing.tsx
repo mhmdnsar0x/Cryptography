@@ -19,8 +19,8 @@ export default function Hashing() {
   const algorithms = [
     { id: "MD5" as HashAlgorithm, name: "MD5", description: "Message Digest 5" },
     { id: "SHA1" as HashAlgorithm, name: "SHA-1", description: "Secure Hash Algorithm 1" },
-    { id: "SHA256" as HashAlgorithm, name: "SHA-256", description: "SHA-2 Family (256-bit)" },
-    { id: "SHA3" as HashAlgorithm, name: "SHA-3", description: "Keccac-based Algorithm" },
+    { id: "SHA256" as HashAlgorithm, name: "SHA-2", description: "SHA-2 Family (256-bit)" },
+    { id: "SHA3" as HashAlgorithm, name: "SHA-3", description: "Keccac-based Algorithm(512-bit)" },
   ];
 
   const handleGenerateHash = async () => {

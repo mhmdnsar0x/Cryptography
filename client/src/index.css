@@ -101,32 +101,36 @@
 /* Footer link animations */
 .footer-link {
   position: relative;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.3s ease-out;
   display: inline-flex;
   align-items: center;
+  border-radius: 4px;
+  padding: 4px 8px;
 }
 
 .footer-link:hover {
-  transform: scale(1.08);
+  transform: translateX(10px);
   font-weight: 600;
   color: hsl(var(--crypto-blue));
+  background-color: rgba(79, 70, 229, 0.1);
 }
 
 .footer-link:active {
-  transform: scale(0.98);
-  transition: all 0.2s ease;
+  transform: translateX(8px) scale(0.98);
+  transition: all 0.15s ease;
 }
 
 .footer-link:hover::before {
-  content: "→";
-  margin-right: 8px;
-  animation: arrowSlide 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  content: "▶";
+  margin-right: 6px;
+  font-size: 0.8em;
+  animation: arrowSlide 0.3s ease-out;
 }
 
 @keyframes arrowSlide {
   from {
     opacity: 0;
-    transform: translateX(-15px);
+    transform: translateX(-8px);
   }
   to {
     opacity: 1;

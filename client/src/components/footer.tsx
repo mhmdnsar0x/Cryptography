@@ -13,7 +13,7 @@ export default function Footer({ onNavigationChange }: FooterProps) {
   };
 
   return (
-    <footer className="text-gray-300 py-12 mt-20" style={{ backgroundColor: 'hsl(var(--footer-dark))' }}>
+    <footer className="text-gray-300 py-8 mt-20" style={{ backgroundColor: 'hsl(var(--footer-dark))' }}>
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand Section */}

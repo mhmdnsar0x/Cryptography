@@ -31,7 +31,7 @@
   --crypto-orange: 25 95% 53%;
   --crypto-dark: 215 28% 17%;
   --crypto-gray: 210 40% 98%;
-  --footer-dark: 203 24% 9%; /* Very dark blue-gray for footer */
+  --footer-dark: 239 84% 12%; /* Dark version of crypto-blue for footer */
 }
 
 .dark {
@@ -101,26 +101,27 @@
 /* Footer link animations */
 .footer-link {
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: inline-flex;
   align-items: center;
 }
 
 .footer-link:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
   font-weight: 600;
+  color: hsl(var(--crypto-blue));
 }
 
 .footer-link:hover::before {
   content: "→";
   margin-right: 8px;
-  animation: arrowSlide 0.3s ease-out;
+  animation: arrowSlide 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @keyframes arrowSlide {
   from {
     opacity: 0;
-    transform: translateX(-10px);
+    transform: translateX(-15px);
   }
   to {
     opacity: 1;

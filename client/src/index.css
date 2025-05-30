@@ -31,6 +31,7 @@
   --crypto-orange: 25 95% 53%;
   --crypto-dark: 215 28% 17%;
   --crypto-gray: 210 40% 98%;
+  --footer-dark: 203 24% 9%; /* Very dark blue-gray for footer */
 }
 
 .dark {
@@ -80,6 +81,51 @@
 
 .tab-indicator {
   animation: slideUnderline 0.3s ease-in-out;
+}
+
+.animated-underline {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* Footer link animations */
+.footer-link {
+  position: relative;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-link:hover {
+  transform: scale(1.05);
+  font-weight: 600;
+}
+
+.footer-link:hover::before {
+  content: "→";
+  margin-right: 8px;
+  animation: arrowSlide 0.3s ease-out;
+}
+
+@keyframes arrowSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .crypto-gradient {

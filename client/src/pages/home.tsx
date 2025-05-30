@@ -11,6 +11,10 @@ type TabType = "symmetric" | "asymmetric" | "hashing";
 export default function Home() {
   const [activeTab, setActiveTab] = useState<TabType>("symmetric");
 
+  const handleTabChange = (tab: TabType) => {
+    setActiveTab(tab);
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case "symmetric":
@@ -27,13 +31,13 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
+      <Navigation activeTab={activeTab} onTabChange={handleTabChange} />
       <main className="container mx-auto px-6 py-12">
         <div className="fade-in">
           {renderContent()}
         </div>
       </main>
-      <Footer />
+      <Footer onNavigationChange={handleTabChange} />
     </div>
   );
 }

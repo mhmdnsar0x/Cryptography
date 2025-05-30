@@ -1,13 +1,19 @@
-export default function Footer() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+interface FooterProps {
+  onNavigationChange?: (tab: "symmetric" | "asymmetric" | "hashing") => void;
+}
+
+export default function Footer({ onNavigationChange }: FooterProps) {
+  const handleServiceClick = (service: "symmetric" | "asymmetric" | "hashing") => {
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Change the active tab if callback is provided
+    if (onNavigationChange) {
+      onNavigationChange(service);
     }
   };
 
   return (
-    <footer className="bg-slate-800 text-gray-300 py-12 mt-20">
+    <footer className="text-gray-300 py-12 mt-20" style={{ backgroundColor: 'hsl(var(--footer-dark))' }}>
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand Section */}
@@ -23,27 +29,27 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4 border-b border-blue-500 pb-2">
               Services
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
                 <button 
-                  onClick={() => window.location.reload()}
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-left"
+                  onClick={() => handleServiceClick("symmetric")}
+                  className="footer-link text-gray-400 hover:text-blue-400 text-left"
                 >
                   Symmetric Encryption
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => window.location.reload()}
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-left"
+                  onClick={() => handleServiceClick("asymmetric")}
+                  className="footer-link text-gray-400 hover:text-blue-400 text-left"
                 >
                   Asymmetric Encryption
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => window.location.reload()}
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-left"
+                  onClick={() => handleServiceClick("hashing")}
+                  className="footer-link text-gray-400 hover:text-blue-400 text-left"
                 >
                   Hash Functions
                 </button>
@@ -56,21 +62,24 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4 border-b border-blue-500 pb-2">
               Info
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                <a href="#" className="footer-link text-gray-400 hover:text-blue-400">
                   Features
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                <a 
+                  href="mailto:mohamednassar0x@gmail.com" 
+                  className="footer-link text-gray-400 hover:text-blue-400"
+                >
                   Support
                 </a>
               </li>
               <li>
                 <a 
                   href="mailto:mohamednassar0x@gmail.com" 
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                  className="footer-link text-gray-400 hover:text-blue-400"
                 >
                   Contact Us
                 </a>

@@ -39,26 +39,24 @@ export default function Navigation({ activeTab, onTabChange }: NavigationProps) 
   return (
     <nav className="container mx-auto px-6 mt-8 mb-12">
       <div className="flex justify-center">
-        <div className="flex bg-white rounded-xl shadow-lg p-2 space-x-2 relative">
+        <div className="flex bg-transparent space-x-8 relative">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               ref={(el) => (tabsRef.current[tab.id] = el)}
               onClick={() => onTabChange(tab.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 relative z-10 ${
+              className={`px-6 py-4 font-medium transition-all duration-300 relative border-b-2 ${
                 activeTab === tab.id
-                  ? "text-white"
-                  : "text-gray-600 hover:text-blue-600"
+                  ? "text-blue-600 border-blue-600"
+                  : "text-gray-600 hover:text-blue-500 border-transparent hover:border-blue-300"
               }`}
             >
               {tab.label}
+              {activeTab === tab.id && (
+                <div className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animated-underline" />
+              )}
             </button>
           ))}
-          <div
-            ref={indicatorRef}
-            className="absolute top-2 bottom-2 crypto-gradient rounded-lg transition-all duration-300 ease-in-out tab-indicator"
-            style={{ left: 0, width: 0 }}
-          />
         </div>
       </div>
     </nav>

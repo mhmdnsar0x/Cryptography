@@ -119,7 +119,7 @@ export default function SymmetricEncryption() {
     }
   };
 
-  const showModeSelection = selectedAlgorithm !== "Blowfish";
+  const showModeSelection = selectedAlgorithm === "AES" || selectedAlgorithm === "DES" || selectedAlgorithm === "3DES";
 
   return (
     <div className="max-w-6xl mx-auto">
